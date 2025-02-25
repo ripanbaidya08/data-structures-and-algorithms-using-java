@@ -1,0 +1,4 @@
+package io.dsalgo.stack.problems.hard;
+
+public class LFUCache {
+}

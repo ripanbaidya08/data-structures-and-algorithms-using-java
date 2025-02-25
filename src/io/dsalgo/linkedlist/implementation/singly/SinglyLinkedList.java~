@@ -1,0 +1,4 @@
+package io.dsalgo.linkedlist.implementation.singly;
+
+public class SinglyLinkedList {
+}
