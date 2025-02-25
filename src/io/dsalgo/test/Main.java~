@@ -1,7 +1,0 @@
-package io.dsalgo.test;
-
-public class Main {
-    public static void main(String[] args) {
-        
-    }
-}
