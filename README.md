@@ -31,7 +31,7 @@ Contributions are welcome! If you'd like to contribute, please follow these step
 1. **Fork the repository** to your GitHub account.  
 2. **Clone the forked repository** to your local machine:  
    ```sh
-   git clone https://github.com/ripanbaidya08/data-structures-and-algorithms-using-java.git
+   https://github.com/ripanbaidya08/data-structures-and-algorithms-using-java.git
 
 ---
 ## License
