@@ -35,4 +35,4 @@ Contributions are welcome! If you'd like to contribute, please follow these step
 
 ---
 ## License
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [Apache 2.0 License](LICENSE).
