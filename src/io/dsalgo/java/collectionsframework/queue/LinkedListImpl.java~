@@ -1,0 +1,25 @@
+package io.dsalgo.java.collectionsframework.queue;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class LinkedListImpl {
+    public static void main(String[] args) {
+        Queue<Integer> q = new LinkedList<>();
+//        Deque<Integer> q = new LinkedList<>();
+        q.add(10);
+        q.add(20);
+        q.add(30);
+        q.add(40);
+
+        Iterator<Integer> it = q.iterator();
+        while(it.hasNext()){
+            int el = it.next();
+            if(el == 20) {
+                it.remove();
+            }
+        }
+        System.out.println(q);
+    }
+}
