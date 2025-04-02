@@ -1,0 +1,38 @@
+package io.dsalgo.recursion.basics;
+
+import java.util.ArrayList;
+
+public class PrintAnyOneSubsequenceThatGivesSumK {
+    private static boolean print(int i, ArrayList<Integer> li, int sum, int[] arr, int k, int n) {
+        if (i == n) {
+            if (sum == k) {
+                System.out.println(li);
+                return true; // Stop recursion if a valid subsequence is found
+            }
+            return false;
+        }
+
+        // Include the current element
+        li.add(arr[i]);
+        sum += arr[i];
+        if (print(i + 1, li, sum, arr, k, n)) return true; // Stop recursion
+
+        // Exclude the current element (Backtracking)
+        li.remove(li.size() - 1);
+        sum -= arr[i];
+        if (print(i + 1, li, sum, arr, k, n)) return true; // Stop recursion
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int k = 6;
+        int[] arr = {17, 18, 6, 11, 2, 4};
+        ArrayList<Integer> li = new ArrayList<>();
+
+        boolean found = print(0, li, 0, arr, k, arr.length);
+        if (!found) {
+            System.out.println("No subsequence found with sum = " + k);
+        }
+    }
+}

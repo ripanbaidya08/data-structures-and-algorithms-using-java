@@ -1,0 +1,25 @@
+package io.dsalgo.binarytree.problems;
+
+import io.dsalgo.binarytree.implementation.TreeNode;
+
+// 110. Balanced Binary Tree
+public class BalancedBT {
+    // if tree is balanced then will return its height
+    // or else will retunr -1.
+    public int dfs(TreeNode root){
+        if(root == null) return 0;
+
+        int left = dfs(root.left);
+        if(left == -1) return -1; // left subtree is unbalanced
+
+        int right = dfs(root.right);
+        if(right == -1) return -1; // right subtree is unbalanced
+
+        if(Math.abs(left - right) > 1) return -1; // unbalanced
+
+        return 1 + Math.max(left, right); // balanced
+    }
+    public boolean isBalanced(TreeNode root) {
+        return dfs(root) != -1; // only unbalanced will return -1
+    }
+}

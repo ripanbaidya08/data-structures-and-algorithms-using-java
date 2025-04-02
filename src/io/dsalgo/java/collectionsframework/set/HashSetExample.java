@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 /**
  * 1. Duplicates are not allowed
@@ -54,5 +55,9 @@ public class HashSetExample {
 
         System.out.println(clone);
         System.out.println(Arrays.toString(arr));
+
+        ConcurrentSkipListSet<Integer> concurrentSkipListSet = new ConcurrentSkipListSet<>();
+
+
     }
 }

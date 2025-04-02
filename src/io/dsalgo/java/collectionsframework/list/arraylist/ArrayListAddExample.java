@@ -1,6 +1,7 @@
 package io.dsalgo.java.collectionsframework.list.arraylist;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 class ArrayListAddExample {
     public static void main(String args[]) {
@@ -33,6 +34,14 @@ class ArrayListAddExample {
         //Adding second list elements to the first list at specific position
         al.addAll(1, al3);
         System.out.println("After invoking addAll(int index, Collection<? extends E> c) method: " + al);
+
+        List<Integer> list = new ArrayList<>();
+        list.add(10); list.add(20); list.add(30); list.add(40);
+
+        list.remove(1); // If I write something inside remove() it will considered as index
+        list.remove((Integer) 10); // If we want to make it Object we want to remove then provide the type
+
+        CopyOnWriteArrayList<Integer> copy = new CopyOnWriteArrayList<>();
 
     }
 }

@@ -11,7 +11,7 @@ package io.dsalgo.linkedlist.implementation.singly;
  * length()
  * display()
  */
-class SinglyLinkedList {
+public class SinglyLinkedList {
     private int len = 0; // initialize the length, which is empty for now
     private ListNode head = null;
 
@@ -81,7 +81,7 @@ class SinglyLinkedList {
      */
     public void deleteFirst() {
         if (head != null) { // check if list is not empty
-            head = head.next; // move head to next node
+            head = head.next; // move head to the next node
             len--;
         }
     }
@@ -142,7 +142,6 @@ class SinglyLinkedList {
             System.out.println("The list is empty.");
             return;
         }
-
         ListNode cur = head;
 
         while (cur != null) {

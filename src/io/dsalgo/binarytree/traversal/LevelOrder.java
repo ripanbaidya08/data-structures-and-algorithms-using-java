@@ -2,6 +2,7 @@ package io.dsalgo.binarytree.traversal;
 
 import io.dsalgo.binarytree.implementation.TreeNode;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;

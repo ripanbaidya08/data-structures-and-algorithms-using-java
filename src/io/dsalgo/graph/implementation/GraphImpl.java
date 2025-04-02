@@ -4,25 +4,30 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
-/*
-    Graph implementation using sets
-    1-------2
-    |
-    3 ------4
 
+/**
+ * Here, I have Represented ui Graph into three different ways. <br>
+ * 1. Using Sets <bvi>
+ * 2. Using Adjacency List <br>
+ * 3. Using Adjacency Matrix <br>
+ *      1-------2
+ *      |       |
+ *      3 ------4 <br>
+ * Here, we have Implement the Graph in such a way so that the node should start with 0.
  */
 public class GraphImpl {
     public static void createAdjacencyMatrix(int v, int e, HashSet<Integer> vertices, ArrayList<ArrayList<Integer>> edges) {
         // if edges are there, then will mark that by 1
-        int[][] adj = new int[v][v];
+        int[][] adj = new int[v][v]; // v- Number of vertex
 
-        for(int i = 0; i < e; i ++){
-            int a = edges.get(i).get(0);
-            int b = edges.get(i).get(1);
+        for(int i = 0; i < e; i ++) {
+            int ui = edges.get(i).get(0);
+            int vi = edges.get(i).get(1);
 
-            adj[a][b] = 1;
-            adj[b][a] = 1; // remove if it's a directed graph
+            adj[ui][vi] = 1;
+            adj[vi][ui] = 1; // remove if it's directed graph
         }
+
         System.out.println("Graph Representation Using Adjacency Matrix");
         for(int i = 0; i < v; i ++){
             System.out.print(i+" -> ");
@@ -32,14 +37,8 @@ public class GraphImpl {
             System.out.println();
         }
     }
+    // Representation of Graph Using Adjacency List
     public static void createAdjacencyList(int v, int e, HashSet<Integer> vertices, ArrayList<ArrayList<Integer>> edges) {
-        // Map vertices to array indices
-        HashMap<Integer, Integer> vertexToIndex = new HashMap<>();
-        int index = 0;
-        for (int vertex : vertices) {
-            vertexToIndex.put(vertex, index++);
-        }
-        // create a array of lists to store the adjacency list
         ArrayList<Integer>[] adj = new ArrayList[v]; // adjacency list
 
         // for each vertex, create an empty list
@@ -47,15 +46,12 @@ public class GraphImpl {
             adj[i] = new ArrayList<Integer>();
         }
 
-        for(int i = 0; i < e; i ++){
-            int a = edges.get(i).get(0);
-            int b = edges.get(i).get(1);
+        for(int i = 0; i < e; i ++) {
+            int ui = edges.get(i).get(0);
+            int vi = edges.get(i).get(1);
 
-            int indexA = vertexToIndex.get(a);
-            int indexB = vertexToIndex.get(b);
-
-            adj[indexA].add(indexB);
-            adj[indexB].add(indexA); // Remove if it's a directed graph
+            adj[ui].add(vi);
+            adj[vi].add(ui); // Remove if it's directed graph
         }
 
         System.out.println("Graph Representation Using Adjacency List : ");
@@ -66,15 +62,15 @@ public class GraphImpl {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        HashSet<Integer> vertices = new HashSet<>(); // store nodes
-        ArrayList<ArrayList<Integer>> edges = new ArrayList<>(); // store edges
+        HashSet<Integer> vertices = new HashSet<>(); // store nodes {0, 1, 2, 3, 4, .. }
+        ArrayList<ArrayList<Integer>> edges = new ArrayList<>(); // store edges {{0, 1}, {0, 2}, {0, 3}, {2, 4}, {3, 1} ... }
 
         System.out.println("Enter number of vertices : ");
-        int v = scan.nextInt(); // number of nodes
+        int v = scan.nextInt(); // number of vertices
         System.out.println("Enter vertices : ");
         for(int i = 0; i < v; i ++) {
-            int node = scan.nextInt();
-            vertices.add(node);
+            int vertex = scan.nextInt();
+            vertices.add(vertex);
         }
 
         System.out.println("Enter number of edges : ");
@@ -82,13 +78,14 @@ public class GraphImpl {
         System.out.println("Enter edges : ");
         for(int i = 0; i < e; i ++) {
             ArrayList<Integer> edge = new ArrayList<>(); // store each edge
-            int a = scan.nextInt();
-            int b = scan.nextInt();
+            int ui = scan.nextInt();
+            int vi = scan.nextInt();
+            // ui ------------------ vi
+            //          | edges
+            edge.add(ui);
+            edge.add(vi);
 
-            edge.add(a);
-            edge.add(b);
-
-            edges.add(edge);
+            edges.add(edge); // add each edge to edges
         }
 
 //        System.out.println("vertices = " + vertices);

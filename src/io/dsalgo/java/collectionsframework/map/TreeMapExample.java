@@ -3,6 +3,9 @@ package io.dsalgo.java.collectionsframework.map;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Elements are maintained in sorted Order.
+ */
 public class TreeMapExample {
     public static void main(String[] args) {
         Map<Integer, String> evenNumbers = new TreeMap<>();
